@@ -22,5 +22,61 @@
 
         <a href="cv-prep.html" style="color: var(--primary-dark); font-weight: 600;">I don't have a CV yet, help me! 💜</a>
     </div>
+    <div class="sister-chat-wrapper">
+    <div class="sister-window" id="sisterWindow">
+        <div class="sister-header">
+            <span>👩🏻 Big Sister</span>
+            <span style="cursor:pointer" onclick="toggleSister()">×</span>
+        </div>
+        <div class="sister-body">
+            <div class="chat-bubble-sister" id="sisterText">
+                Hi Dula! Need a hand with something on this page?
+            </div>
+            <div class="chat-options-mini">
+                <button onclick="sisterAsk('help')">Explain this page</button>
+                <button onclick="sisterAsk('cv')">CV Tips</button>
+                <button onclick="location.href='cv-prep.html'">Build my CV</button>
+                <button onclick="sisterAsk('interview')">Interview Prep</button>
+            </div>
+        </div>
+    </div>
+    <div class="sister-trigger" onclick="toggleSister()">
+        👩🏻
+    </div>
+</div>
+
+<script>
+    function toggleSister() {
+        const win = document.getElementById('sisterWindow');
+        win.classList.toggle('active');
+    }
+
+    function sisterAsk(topic) {
+        const text = document.getElementById('sisterText');
+        const name = localStorage.getItem('buttercup_user') || 'Buttercup';
+        
+        // Context-aware responses based on which file the user is in
+        const path = window.location.pathname;
+        
+        if (topic === 'help') {
+            if (path.includes('jobs')) text.innerText = `I've picked these jobs for you, ${name}, because they value transferable skills!`;
+            else if (path.includes('events')) text.innerText = "Networking is just talking! Try the virtual mixer first.";
+            else text.innerText = "I'm here to build you up! Pick a path and let's go.";
+        } 
+        else if (topic === 'cv') {
+            text.innerText = "Always use bullet points and bold your achievements! Check the CV Help page for more.";
+        }
+        else if (topic === 'interview') {
+            text.innerText = "Be ready to tell a story about a time you solved a hard problem. You've got this!";
+        }
+    }
+
+    // Auto-update greeting with user's name
+    window.addEventListener('load', () => {
+        const name = localStorage.getItem('buttercup_user') || 'Friend';
+        document.getElementById('sisterText').innerText = `Hi ${name}! How can I help you bloom today?`;
+    });
+</script>
+
 </body>
 </html>
