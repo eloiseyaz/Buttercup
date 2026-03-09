@@ -4,26 +4,87 @@
     <meta charset="UTF-8">
     <title>Jobs | ButterCup</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
         <a href="index.html" class="logo"></a>
         <div class="nav-links">
             <a href="dashboard.html">Dashboard</a>
-            <a href="cv-prep.html">CV Help</a>
+            <a href="events.html">Events</a>
+            <a href="learning.html">Learning</a>
         </div>
     </nav>
+
     <div class="container">
-        <h2>Recommended for You</h2>
-        <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-                <h4>Junior Operations Manager</h4>
-                <p style="color: var(--text-muted)">FinTech Co • Remote • 95% Match</p>
+        <header style="margin-bottom: 2rem;">
+            <h2 id="jobGreeting">Recommended for you, Dula</h2>
+            <p style="color: var(--text-muted)">Based on your interest in <strong>Data Analytics</strong>.</p>
+        </header>
+
+        <div style="display: grid; grid-template-columns: 1fr 350px; gap: 2rem; align-items: start;">
+            
+            <div class="job-feed">
+                <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <span style="color: var(--primary); font-weight: 700; font-size: 0.75rem;">HOT MATCH • 95%</span>
+                        <h4 style="margin: 5px 0;">Junior Data Analyst</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">RetailMetrics • London / Remote</p>
+                    </div>
+                    <button class="btn btn-primary">Apply Now</button>
+                </div>
+
+                <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <span style="color: var(--primary); font-weight: 700; font-size: 0.75rem;">GREAT FOR SWITCHERS</span>
+                        <h4 style="margin: 5px 0;">Operations Associate (Data Focused)</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">GreenStep Energy • Hybrid</p>
+                    </div>
+                    <button class="btn btn-primary">Apply Now</button>
+                </div>
+
+                <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <span style="color: var(--primary); font-weight: 700; font-size: 0.75rem;">INTERNSHIP</span>
+                        <h4 style="margin: 5px 0;">Business Intelligence Intern</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">StartupHub • Remote</p>
+                    </div>
+                    <button class="btn btn-primary">Apply Now</button>
+                </div>
+
+                <a href="dashboard.html" class="btn btn-outline" style="margin-top: 1rem;">← Back to Dashboard</a>
             </div>
-            <button class="btn btn-primary">Apply</button>
+
+            <aside class="sister-sidebar">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <div style="font-size: 3rem;">👩🏻</div>
+                    <h3 style="color: var(--primary-dark); margin-top: 10px;">Big Sister Tip</h3>
+                </div>
+                
+                <div class="chat-bubble" style="font-style: italic;">
+                    "When applying for Data roles, Dula, don't just list tools like Excel or SQL. 
+                    Tell them a story about a time you <strong>spotted a trend</strong> or <strong>fixed a mistake</strong> using info. Recruiters love a problem-solver!"
+                </div>
+
+                <div style="background: var(--primary-soft); padding: 15px; border-radius: 12px; margin-top: 20px;">
+                    <h5 style="margin-bottom: 8px; color: var(--primary-dark);">Quick Checklist:</h5>
+                    <ul style="font-size: 0.85rem; padding-left: 18px; color: var(--text-dark);">
+                        <li style="margin-bottom: 5px;">Updated LinkedIn profile?</li>
+                        <li style="margin-bottom: 5px;">Check ATS keywords?</li>
+                        <li style="margin-bottom: 5px;">Practice 'Tell me about yourself'?</li>
+                    </ul>
+                </div>
+            </aside>
+
         </div>
-        <a href="dashboard.html" class="btn btn-outline">Back to Dashboard</a>
     </div>
+
+    <script>
+        window.onload = function() {
+            const name = localStorage.getItem('buttercup_user') || 'Dula';
+            document.getElementById('jobGreeting').innerText = `Recommended for you, ${name}`;
+        };
+    </script>
     <div class="sister-chat-wrapper">
     <div class="sister-window" id="sisterWindow">
         <div class="sister-header">
