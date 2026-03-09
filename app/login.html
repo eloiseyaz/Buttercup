@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to ButterCup</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .wizard-container { max-width: 600px; margin: 100px auto; text-align: center; }
+        .step { display: none; animation: fadeIn 0.5s ease; }
+        .step.active { display: block; }
+        .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .option-card { padding: 20px; border: 2px solid var(--secondary); border-radius: var(--radius); cursor: pointer; transition: 0.3s; background: white; }
+        .option-card:hover { border-color: var(--primary); background: var(--primary-soft); }
+        input[type="text"] { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid var(--secondary); font-size: 1.1rem; margin-bottom: 20px; outline: none; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wizard-container">
+            <div id="step-login" class="step active">
+                <h1>Hi there!</h1>
+                <p style="margin-bottom: 2rem;">What should we call you?</p>
+                <input type="text" id="userName" placeholder="Enter your name..." />
+                <button class="btn btn-primary" onclick="nextStep(1)">Get Started</button>
+            </div>
+
+            <div id="step-certainty" class="step">
+                <h1 id="welcomeText">Welcome</h1>
+                <p>How are you feeling about your career switch today?</p>
+                <div class="choice-grid">
+                    <div class="option-card" onclick="nextStep(2)">
+                        <h3>I know which field I want</h3>
+                        <p>I have a target in mind.</p>
+                    </div>
+                    <div class="option-card" onclick="location.href='discovery.html'">
+                        <h3>I need help</h3>
+                        <p>I'm not sure where to start.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step-industries" class="step">
+                <h1>Pick an Industry</h1>
+                <p>Which world do you want to enter?</p>
+                <div class="choice-grid">
+                    <div class="option-card" onclick="nextStep(3)"><h3>Tech</h3></div>
+                    <div class="option-card"><h3>Finance</h3></div>
+                    <div class="option-card"><h3>Education</h3></div>
+                    <div class="option-card"><h3>Sales</h3></div>
+                </div>
+            </div>
+
+            <div id="step-niches" class="step">
+                <h1>Niche Down</h1>
+                <p>What kind of Tech role excites you?</p>
+                <div class="choice-grid">
+                    <div class="option-card"><h3>Software Dev</h3></div>
+                    <div class="option-card"><h3>Core Engineering</h3></div>
+                    <div class="option-card" onclick="goToApp()"><h3>Data Analytics</h3></div>
+                    <div class="option-card"><h3>UI/UX Design</h3></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(current) {
+            if(current === 1) {
+                const name = document.getElementById('userName').value || 'Buttercup';
+                localStorage.setItem('buttercup_user', name);
+                document.getElementById('welcomeText').innerText = `Welcome, ${name}!`;
+                showStep('step-certainty');
+            } else if(current === 2) {
+                showStep('step-industries');
+            } else if(current === 3) {
+                showStep('step-niches');
+            }
+        }
+
+        function showStep(id) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function goToApp() {
+            // After picking Data Analytics, go to the main landing page
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

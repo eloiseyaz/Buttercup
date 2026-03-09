@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Your Path | ButterCup</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .quiz-container { max-width: 600px; margin: 80px auto; text-align: center; }
+        .quiz-step { display: none; animation: fadeIn 0.4s ease; }
+        .quiz-step.active { display: block; }
+        .options-vertical { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+        .opt-btn { padding: 15px; border: 1px solid var(--secondary); border-radius: 12px; background: white; cursor: pointer; text-align: left; font-weight: 500; transition: 0.2s; }
+        .opt-btn:hover { border-color: var(--primary); background: var(--primary-soft); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-container">
+            <div id="q-cv" class="quiz-step active">
+                <h2>First things first...</h2>
+                <p>Do you have a CV ready to go?</p>
+                <div class="options-vertical">
+                    <button class="opt-btn" onclick="saveAnswer('hasCV', 'yes', 'q-interests')">Yes, I have one!</button>
+                    <button class="opt-btn" onclick="saveAnswer('hasCV', 'no', 'q-interests')">No, I need to build one.</button>
+                </div>
+            </div>
+
+            <div id="q-interests" class="quiz-step">
+                <h2>What sparks your interest?</h2>
+                <p>Pick the vibe that fits you best:</p>
+                <div class="options-vertical">
+                    <button class="opt-btn" onclick="saveAnswer('interest', 'logic', 'q-goal')">🧩 Solving puzzles & logic</button>
+                    <button class="opt-btn" onclick="saveAnswer('interest', 'creative', 'q-goal')">🎨 Designing & creating visuals</button>
+                    <button class="opt-btn" onclick="saveAnswer('interest', 'people', 'q-goal')">🤝 Helping people & organizing</button>
+                </div>
+            </div>
+
+            <div id="q-goal" class="quiz-step">
+                <h2>What's your main goal?</h2>
+                <div class="options-vertical">
+                    <button class="opt-btn" onclick="finalize('jobs')">I want to find a job ASAP</button>
+                    <button class="opt-btn" onclick="finalize('learning')">I want to learn new skills first</button>
+                    <button class="opt-btn" onclick="finalize('networking')">I want to meet other women first</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let userData = {};
+
+        function saveAnswer(key, value, nextId) {
+            userData[key] = value;
+            document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+            document.getElementById(nextId).classList.add('active');
+        }
+
+        function finalize(priority) {
+            localStorage.setItem('user_profile', JSON.stringify(userData));
+            
+            // Logic-based redirection
+            if (userData.hasCV === 'no') {
+                window.location.href = 'cv-prep.html';
+            } else {
+                // If they have a CV, send them to their chosen priority
+                if (priority === 'jobs') window.location.href = 'jobs.html';
+                if (priority === 'learning') window.location.href = 'learning.html';
+                if (priority === 'networking') window.location.href = 'events.html';
+            }
+        }
+    </script>
+</body>
+</html>
