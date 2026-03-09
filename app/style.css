@@ -2,21 +2,23 @@
     --primary: #8e7dbe;
     --primary-dark: #6a5a9d;
     --primary-soft: #f4f2ff;
+    --buttercup: #E2B330;
     --secondary: #dcd0ff;
     --text-dark: #2d264d;
     --text-muted: #6b7280;
     --white: #ffffff;
-    --shadow: 0 10px 30px rgba(142, 125, 190, 0.1);
+    --shadow: 0 10px 30px rgba(142, 125, 190, 0.5);
     --radius: 20px;
+    --buttercup-text: url("./buttercup_text.png");
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 body { background-color: var(--primary-soft); color: var(--text-dark); line-height: 1.6; }
-h1, h2, h3, .logo { font-family: 'DM Serif Display', serif; }
+h1, h2, h3, .nav { font-family: 'DM Serif Display', serif; }
 
-nav { padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; background: white; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
-.logo { font-size: 1.8rem; color: var(--primary-dark); cursor: pointer; text-decoration: none; }
-.nav-links a { margin-left: 20px; color: var(--primary-dark); font-weight: 600; text-decoration: none; }
+nav { padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; background: var(--primary); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
+.logo {background-image: var(--buttercup-text); background-size: contain; background-repeat: no-repeat; background-position: center; width: 200px; height: 50px; display: inline-block; cursor: pointer;}
+.nav-links a { margin-left: 20px; color: var(--buttercup); font-weight: 600; text-decoration: none; }
 
 .container { max-width: 1100px; margin: 0 auto; padding: 2rem 5%; }
 
