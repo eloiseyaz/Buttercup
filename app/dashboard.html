@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | ButterCup</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .menu-card { text-align: center; padding: 3rem 1rem; text-decoration: none; color: inherit; transition: 0.3s; }
+        .menu-card:hover { transform: translateY(-10px); background: #fdfcff; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">ButterCup</a>
+    </nav>
+    <div class="container">
+        <h2>Your Career Hub</h2>
+        <div class="menu-grid">
+            <a href="jobs.html" class="card menu-card">
+                <span style="font-size: 2.5rem;">🎯</span>
+                <h3>Job Recommendations</h3>
+                <p>Curated matches for your level.</p>
+            </a>
+            <a href="events.html" class="card menu-card">
+                <span style="font-size: 2.5rem;">🕊️</span>
+                <h3>Events & Networking</h3>
+                <p>Connect with the community.</p>
+            </a>
+            <a href="learning.html" class="card menu-card">
+                <span style="font-size: 2.5rem;">📖</span>
+                <h3>Learning Paths</h3>
+                <p>Courses to help you pivot.</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Paths | ButterCup</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .learning-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        .tag { background: var(--secondary); color: var(--primary-dark); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">ButterCup</a>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="jobs.html">Jobs</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header style="margin-bottom: 3rem;">
+            <h2>Bridge the Gap</h2>
+            <p style="color: var(--text-muted);">Curated courses and certifications to help you switch industries with confidence.</p>
+        </header>
+
+        <div class="learning-grid">
+            <div class="card">
+                <span class="tag">Certification</span>
+                <h3 style="margin: 15px 0 10px; color: var(--primary-dark);">Digital Marketing 101</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                    Learn the fundamentals of SEO, Social Media, and Analytics. Perfect for retail-to-tech switchers.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.85rem; font-weight: 600;">⏳ 4 Weeks</span>
+                    <button class="btn btn-primary" style="padding: 0.5rem 1rem;">Start Path</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="tag">Technical</span>
+                <h3 style="margin: 15px 0 10px; color: var(--primary-dark);">Python for Data Basics</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                    No coding experience? No problem. We start from zero to help you understand data-driven decisions.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.85rem; font-weight: 600;">⏳ 6 Weeks</span>
+                    <button class="btn btn-primary" style="padding: 0.5rem 1rem;">Start Path</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="tag">Soft Skills</span>
+                <h3 style="margin: 15px 0 10px; color: var(--primary-dark);">Agile Project Management</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                    Translate your organization skills into the "Agile" way of working used by top startups.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.85rem; font-weight: 600;">⏳ 2 Weeks</span>
+                    <button class="btn btn-primary" style="padding: 0.5rem 1rem;">Start Path</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; background: var(--white); padding: 2rem; border-radius: var(--radius); text-align: center;">
+            <h3>Need a custom learning plan?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Ask Big Sister in the CV Prep area to suggest courses based on your background.</p>
+            <a href="cv-prep.html" class="btn btn-outline">Ask Big Sister</a>
+        </div>
+    </div>
+</body>
+</html>
