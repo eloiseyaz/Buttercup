@@ -7,8 +7,16 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        .learning-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        .learning-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .tag { background: var(--secondary); color: var(--primary-dark); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
+        
+        /* Layout for sidebar */
+        .content-layout { display: grid; grid-template-columns: 1fr 350px; gap: 2rem; align-items: start; }
+        
+        @media (max-width: 900px) {
+            .content-layout { grid-template-columns: 1fr; }
+            .sister-sidebar { position: static; order: -1; } /* Tips show first on mobile */
+        }
     </style>
 </head>
 <body>
@@ -16,114 +24,126 @@
         <a href="index.html" class="logo">ButterCup</a>
         <div class="nav-links">
             <a href="dashboard.html">Dashboard</a>
-            <a href="cv-prep.html">CV Help</a>
+            <a href="jobs.html">Jobs</a>
         </div>
     </nav>
 
     <div class="container">
         <header style="margin-bottom: 3rem;">
-            <h2>Bridge the Gap</h2>
+            <h2 id="learningGreeting">Bridge the Gap, Dula</h2>
             <p style="color: var(--text-muted);">Curated courses and certifications to help you switch industries with confidence.</p>
         </header>
 
-        <div class="learning-grid">
-            <div class="card">
-                <span class="tag">Certification</span>
-                <h3 style="margin: 15px 0 10px; color: var(--primary-dark);">Digital Marketing 101</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-                    Learn the fundamentals of SEO, Social Media, and Analytics. Perfect for retail-to-tech switchers.
-                </p>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-size: 0.85rem; font-weight: 600;">⏳ 4 Weeks</span>
-                    <button class="btn btn-primary" style="padding: 0.5rem 1rem;">Start Path</button>
+        <div class="content-layout">
+            <div class="learning-main">
+                <div class="learning-grid">
+                    <div class="card">
+                        <span class="tag">Certification</span>
+                        <h3 style="margin: 15px 0 10px; color: var(--primary-dark);">Data Analytics with Excel</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                            Learn basics of data analytics using Excel including use of VLookup and INDEX.
+                        </p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.85rem; font-weight: 600;">⏳ 4 Weeks</span>
+                            <button class="btn btn-primary" style="padding: 0.5rem 1rem;">Start Path</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="tag">Technical</span>
+                        <h3 style="margin: 15px 0 10px; color: var(--primary-dark);">Python for Data Basics</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                            No coding experience? No problem. We start from zero to help you understand data-driven decisions.
+                        </p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.85rem; font-weight: 600;">⏳ 6 Weeks</span>
+                            <button class="btn btn-primary" style="padding: 0.5rem 1rem;">Start Path</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="tag">Soft Skills</span>
+                        <h3 style="margin: 15px 0 10px; color: var(--primary-dark);">Data Analytics using R</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                            Translate your data skills using R, used by top startups.
+                        </p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.85rem; font-weight: 600;">⏳ 2 Weeks</span>
+                            <button class="btn btn-primary" style="padding: 0.5rem 1rem;">Start Path</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; background: var(--white); padding: 2rem; border-radius: var(--radius); text-align: center; box-shadow: var(--shadow);">
+                    <h3>Need a custom learning plan?</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Ask Big Sister in the CV Prep area to suggest courses based on your background.</p>
+                    <a href="cv-prep.html" class="btn btn-outline">Ask Big Sister</a>
                 </div>
             </div>
 
-            <div class="card">
-                <span class="tag">Technical</span>
-                <h3 style="margin: 15px 0 10px; color: var(--primary-dark);">Python for Data Basics</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-                    No coding experience? No problem. We start from zero to help you understand data-driven decisions.
-                </p>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-size: 0.85rem; font-weight: 600;">⏳ 6 Weeks</span>
-                    <button class="btn btn-primary" style="padding: 0.5rem 1rem;">Start Path</button>
+            <aside class="sister-sidebar">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <div style="font-size: 3rem;">👩🏻</div>
+                    <h3 style="color: var(--primary-dark); margin-top: 10px;">Big Sister Tip</h3>
                 </div>
-            </div>
-
-            <div class="card">
-                <span class="tag">Soft Skills</span>
-                <h3 style="margin: 15px 0 10px; color: var(--primary-dark);">Agile Project Management</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-                    Translate your organization skills into the "Agile" way of working used by top startups.
-                </p>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-size: 0.85rem; font-weight: 600;">⏳ 2 Weeks</span>
-                    <button class="btn btn-primary" style="padding: 0.5rem 1rem;">Start Path</button>
+                
+                <div class="chat-bubble-sister" style="background: var(--white); border: 1px solid var(--secondary); border-radius: 15px 15px 15px 0; padding: 15px;">
+                    "Don't feel like you need to finish every course at once, Dula! 
+                    <br> In Data Analytics, it's better to build one small project in Excel than to watch ten videos without practicing. Pick one and start today! ✨"
                 </div>
-            </div>
-        </div>
 
-        <div style="margin-top: 3rem; background: var(--white); padding: 2rem; border-radius: var(--radius); text-align: center;">
-            <h3>Need a custom learning plan?</h3>
-            <p style="color: var(--text-muted); margin-bottom: 1rem;">Ask Big Sister in the CV Prep area to suggest courses based on your background.</p>
-            <a href="cv-prep.html" class="btn btn-outline">Ask Big Sister</a>
+                <div style="background: var(--primary-soft); padding: 15px; border-radius: 12px; margin-top: 20px;">
+                    <h5 style="margin-bottom: 8px; color: var(--primary-dark);">Why this matters:</h5>
+                    <p style="font-size: 0.85rem; color: var(--text-dark); line-height: 1.4;">
+                        Learning Python or R shows recruiters you have a <strong>growth mindset</strong>. Even if you're just starting, listing 'Currently Studying' on your CV can open doors!
+                    </p>
+                </div>
+            </aside>
         </div>
     </div>
+
     <div class="sister-chat-wrapper">
-    <div class="sister-window" id="sisterWindow">
-        <div class="sister-header">
-            <span>👩🏻 Big Sister</span>
-            <span style="cursor:pointer" onclick="toggleSister()">×</span>
-        </div>
-        <div class="sister-body">
-            <div class="chat-bubble-sister" id="sisterText">
-                Hi Dula! Need a hand with something on this page?
+        <div class="sister-window" id="sisterWindow">
+            <div class="sister-header">
+                <span>👩🏻 Big Sister</span>
+                <span style="cursor:pointer" onclick="toggleSister()">×</span>
             </div>
-            <div class="chat-options-mini">
-                <button onclick="sisterAsk('help')">Explain this page</button>
-                <button onclick="sisterAsk('cv')">CV Tips</button>
-                <button onclick="location.href='cv-prep.html'">Build my CV</button>
-                <button onclick="sisterAsk('interview')">Interview Prep</button>
+            <div class="sister-body">
+                <div class="chat-bubble-sister" id="sisterText">Hi Dula! Need a hand?</div>
+                <div class="chat-options-mini">
+                    <button onclick="sisterAsk('help')">Explain this page</button>
+                    <button onclick="sisterAsk('cv')">CV Tips</button>
+                    <button onclick="location.href='cv-prep.html'">Build my CV</button>
+                    <button onclick="sisterAsk('interview')">Interview Prep</button>
+                </div>
             </div>
         </div>
+        <div class="sister-trigger" onclick="toggleSister()">👩🏻</div>
     </div>
-    <div class="sister-trigger" onclick="toggleSister()">
-        👩🏻
-    </div>
-</div>
 
-<script>
-    function toggleSister() {
-        const win = document.getElementById('sisterWindow');
-        win.classList.toggle('active');
-    }
-
-    function sisterAsk(topic) {
-        const text = document.getElementById('sisterText');
-        const name = localStorage.getItem('buttercup_user') || 'Buttercup';
-        
-        // Context-aware responses based on which file the user is in
-        const path = window.location.pathname;
-        
-        if (topic === 'help') {
-            if (path.includes('jobs')) text.innerText = `I've picked these jobs for you, ${name}, because they value transferable skills!`;
-            else if (path.includes('events')) text.innerText = "Networking is just talking! Try the virtual mixer first.";
-            else text.innerText = "I'm here to build you up! Pick a path and let's go.";
-        } 
-        else if (topic === 'cv') {
-            text.innerText = "Always use bullet points and bold your achievements! Check the CV Help page for more.";
+    <script>
+        function toggleSister() {
+            document.getElementById('sisterWindow').classList.toggle('active');
         }
-        else if (topic === 'interview') {
-            text.innerText = "Be ready to tell a story about a time you solved a hard problem. You've got this!";
-        }
-    }
 
-    // Auto-update greeting with user's name
-    window.addEventListener('load', () => {
-        const name = localStorage.getItem('buttercup_user') || 'Friend';
-        document.getElementById('sisterText').innerText = `Hi ${name}! How can I help you bloom today?`;
-    });
-</script>
+        function sisterAsk(topic) {
+            const text = document.getElementById('sisterText');
+            const name = localStorage.getItem('buttercup_user') || 'Dula';
+            
+            if (topic === 'help') {
+                text.innerText = `These courses are specially picked for your switch into Data Analytics, ${name}. Which one looks most exciting?`;
+            } else if (topic === 'cv') {
+                text.innerText = "Add these courses to your 'Education' or 'Certifications' section as soon as you start!";
+            } else if (topic === 'interview') {
+                text.innerText = "Be ready to explain WHY you chose these courses. It shows you are proactive!";
+            }
+        }
+
+        window.addEventListener('load', () => {
+            const name = localStorage.getItem('buttercup_user') || 'Dula';
+            document.getElementById('learningGreeting').innerText = `Bridge the Gap, ${name}`;
+            document.getElementById('sisterText').innerText = `Hi ${name}! Ready to learn something new?`;
+        });
+    </script>
 </body>
 </html>
